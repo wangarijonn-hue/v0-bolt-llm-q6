@@ -18,7 +18,7 @@ export default function MarkdownRenderer({ children, darkMode = false }) {
       rehypePlugins={[rehypeSanitize]}
       components={{
         code({ node, inline, className, children, ...props }) {
-          const match = /language-(\w+)/.exec(className || "");
+          const match = /language-([^\s]+)/.exec(className || "");
           if (!inline && match) {
             return (
               <SyntaxHighlighter
